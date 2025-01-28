@@ -1,0 +1,15 @@
+html, body { height: 100%; margin: 0; }
+body {
+  background: black;
+
+}
+
+
+.anim-text {
+  height: 90vh;
+ 
+
+}
+img:first-child { margin-bottom: 5svh; }
+img:last-child { margin-top: 5svh; }
+
