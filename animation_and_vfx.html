@@ -8,13 +8,42 @@
     <script type="module" src="anim.js"></script>
   </head>
   <body>
-    <section class="main-head">
-      <img
-        class="anim-text"
-        src="Assets/animation_text.png"
-        data-mode="1"
-        data-speed="0.25"
-      />
+    <section>
+      <img class="anim-text" 
+      src="Assets/animation_text.png" 
+      style="position: relative; z-index: 2;"
+      data-speed="0.4" 
+      data-mode="1"/>
     </section>
+    <div id="grid-con">
+      <div class="grid" id="grid"></div>
+ 
+
+    <script>
+      const grid = document.getElementById("grid");
+      const frames = ["frame1.png", "frame2.png", "frame3.png"]; // Replace with actual image URLs
+
+      for (let i = 0; i < 400; i++) {
+        // Adjusted for squares
+        let square = document.createElement("div");
+        square.classList.add("square");
+        let img = document.createElement("img");
+        square.appendChild(img);
+
+        square.addEventListener("mouseenter", () => {
+          let randomFrame = frames[Math.floor(Math.random() * frames.length)];
+          img.src = randomFrame;
+          img.style.opacity = 1;
+        });
+
+        square.addEventListener("mouseleave", () => {
+          setTimeout(() => {
+            img.style.opacity = 0;
+          }, 300); 
+        });
+
+        grid.appendChild(square);
+      }
+    </script>
   </body>
 </html>

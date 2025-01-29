@@ -175,7 +175,7 @@ const getDataAttributes = (e) => {
 // main
 const vfx = new VFX();
 
-for (const e of document.querySelectorAll('img,h2')) {      
+for (const e of document.querySelectorAll('.anim-text,h2')) {      
   const data = getDataAttributes(e);
       
   vfx.add(e, { 

@@ -7,9 +7,77 @@ body {
 
 .anim-text {
   height: 90vh;
- 
+ pointer-events: none;
 
 }
-img:first-child { margin-bottom: 5svh; }
-img:last-child { margin-top: 5svh; }
+.anim-text:first-child { margin-bottom: 5svh; }
+.anim-text:last-child { margin-top: 5svh; }
 
+
+
+:root {
+  --background-rgb: 0 0 0;
+}
+
+
+#grid-con {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(var(--background-rgb));
+  overflow: hidden;
+  perspective: 2000px;
+}
+
+.grid {
+  width: 140rem;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-rows: repeat(20, 1fr); /* Adjusted for squares */
+  grid-template-columns: repeat(20, 1fr); /* Adjusted for squares */
+  position: absolute;
+  transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg) scale(1.25);
+  z-index: 1; /* Ensure the grid is below other elements */
+}
+
+.grid:after,
+.grid:before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  pointer-events: none;
+}
+
+.grid:before {
+  z-index: 2;
+  background-size: 5%;
+  background-repeat: repeat;
+  opacity: 0.25;
+}
+
+.square {
+  border: 2px solid rgb(255 255 255 / 25%);
+  transition: background 0.3s, transform 0.9s;
+}
+
+.square:hover {
+  transform: scale(1.4) translateZ(20px);
+  transition-duration: 200ms;
+}
+
+.square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.square:hover img {
+  opacity: 1;
+}
