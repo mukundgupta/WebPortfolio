@@ -21,14 +21,14 @@ html {
 
 .magic{
   z-index: 10;
-  background: linear-gradient(to right, #adc555,#d4ff00,#adc555);
+  background: linear-gradient(to right, #002aff,#71f3ff,#002aff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: nowrap;
   background-size: 200%;
   animation: background-pan 2s infinite;
   animation-timing-function: linear;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.468);
+  text-shadow: 0 0 10px rgba(4, 230, 250, 0.543);
   
 }
 
@@ -261,7 +261,7 @@ body:hover > #trailer {
     right: 0px;
     bottom: 0;
   clip-path: circle(0.5% at 50% 50%);
-    background: #205072;
+    background: #007eb8;
     transition: 0.4s;
     opacity: 1;
 }
@@ -302,12 +302,12 @@ body:hover > #trailer {
 :root {
   --color-bg1: rgb(8, 10, 15);
   --color-bg2: rgb(0, 17, 32);
-  --color1: 18, 113, 100;
-  --color2: 50, 74, 100;
-  --color3: 50, 100, 150;
-  --color4: 50, 160, 100;
-  --color5: 50, 100, 50;
-  --color-interactive: 100, 140, 100;
+  --color1: 255, 204, 0;
+  --color2: 255, 179, 0;
+  --color3: 255, 153, 0;
+  --color4: 255, 128, 0;
+  --color5: 255, 102, 0;
+  --color-interactive: 255, 204, 102;
   --circle-size: 80%;
   --blending: hard-light;
 }
@@ -1190,7 +1190,6 @@ width: 100%;
 filter: drop-shadow(0 0 25px var(--clr));
 
 }
-/* Compiled CSS from menu.sass */
 .some-css-to-make-it-pretty {
 position: fixed;
 height: 90vh;
@@ -1244,18 +1243,20 @@ transform: scale(0.85, 0.85);
 transform: rotate(90deg);
 top: 12px; /* Adjusted for larger size */
 max-width: 100%;
-background-color: #93cc58;
+background-color: #ddcb03;
 }
 
 .menu-btn-outer:hover .line-2,
 .menu-btn-outer.activated .line-2 {
 margin-bottom: 0;
 max-width: 100%;
+background-color: #ddcb03;
 }
 
 .menu-btn-outer:hover .line-3,
 .menu-btn-outer.activated .line-3 {
 right: -175%;
+
 }
 
 .menu-btn-outer.activated .menu-text {
@@ -1280,7 +1281,7 @@ transform: scale(0.75, 0.75);
 
 .menu-btn-outer.activated:hover .line-1,
 .menu-btn-outer.activated:hover .line-2 {
-background-color: white;
+background-color: rgb(159, 198, 255);
 }
 
 /* Menu word styling */
@@ -1292,7 +1293,7 @@ width: 100%;
 max-width: 100px; /* Increase max-width */
 overflow: hidden;
 position: relative;
-color: rgba(255, 255, 255, 0.5);
+color: rgba(255, 255, 255, 0.744);
 }
 
 .menu-word > span {
@@ -1310,7 +1311,7 @@ left: -100%;
 .menu-btn {
 width: 70px; /* Increase width */
 height: 70px; /* Increase height */
-border: rgba(255, 255, 255, 0.5) solid 7px; /* Increase border thickness */
+border: rgba(255, 255, 255, 0.644) solid 7px; /* Increase border thickness */
 border-radius: 50%;
 position: relative;
 transition: 350ms;
@@ -1345,7 +1346,7 @@ max-width: 35px; /* Increase max-width */
 }
 
 .menu-btn-circle .line-2 {
-background-color: #94cb59;
+  background-color: #ddcb03;
 max-width: 50px; /* Increase max-width */
 top: 12px; /* Adjusted for larger size */
 }
@@ -1392,28 +1393,4 @@ text-decoration: none;
 font-size: 4vw;
 font-family: 'Raleway', sans-serif;
 font-weight: bold;
-}
-
-/* Overlay */
-.overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.5);
-z-index: 9999;
-opacity: 0;
-transition: opacity 0.5s ease;
-pointer-events: none;
-}
-
-/* Show menu and overlay */
-.menu.show {
-right: 0; /* Change from left to right */
-}
-
-.overlay.show {
-opacity: 1;
-pointer-events: auto;
 }
