@@ -108,13 +108,14 @@
       });
 
       // path animation
-      timeline.from(path, 1, {
+      timeline.from(path, 0.5, {
+        // Reduced duration for faster animation
         autoAlpha: 0,
         ease: Power2.easeOut,
       });
       timeline.to(
         path,
-        2,
+        1,
         {
           attr: {
             "stroke-dashoffset": 0,
@@ -127,18 +128,18 @@
       // Explosion
       timeline.staggerFrom(
         "polygon",
-        0.2,
+        0.1,
         {
           scale: 0,
           transformOrigin: "center",
           ease: Back.easeOut,
         },
         0.05,
-        2
+        1
       );
       timeline.staggerTo(
         "polygon",
-        0.5,
+        0.25,
         {
           cycle: {
             rotation: [-90, 90],
@@ -146,24 +147,24 @@
           transformOrigin: "center",
         },
         0,
-        2
+        1
       );
       timeline.staggerTo(
         "polygon",
-        0.5,
+        0.25,
         {
           autoAlpha: 0,
           transformOrigin: "center",
           ease: Back.easeOut,
         },
         -0.05,
-        2 + "+=.4"
+        1 + "+=.5"
       );
 
       // remove path
       timeline.to(
         path,
-        2,
+        1,
         {
           attr: {
             "stroke-dashoffset": -length,
@@ -171,7 +172,7 @@
           autoAlpha: 0,
           ease: Quint.easeInOut,
         },
-        2
+        1
       );
 
       // Show content after loading animation
@@ -179,7 +180,7 @@
         setTimeout(() => {
           document.querySelector(".preloader").style.display = "none";
           document.getElementById("content").style.display = "block";
-        }, 3200); // Adjust the timeout to match the loading animation duration
+        }, 2000); // Reduced the timeout to match the faster loading animation duration
       });
 
       const grid = document.getElementById("grid");

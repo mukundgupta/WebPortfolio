@@ -502,8 +502,7 @@ body:hover > #trailer {
   }
 }
  
-/*Options for Services
-
+/*Options for Portfolios
 
 /* 
 --Main Flexbox --
@@ -511,13 +510,14 @@ body:hover > #trailer {
 .ServiceSelect {
   display: flex;
   flex-direction: row;
-  padding-top: 400vh;
+  padding-top: 370vh;
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;
   gap: 30px;
   z-index: 5;
   width: 100vw;
+  height: 100vh;
   align-self: center;
   font-family: "Raleway", sans-serif;
   
@@ -1393,4 +1393,238 @@ text-decoration: none;
 font-size: 4vw;
 font-family: 'Raleway', sans-serif;
 font-weight: bold;
+}
+
+/* Overlay */
+.overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 9999;
+opacity: 0;
+transition: opacity 0.5s ease;
+pointer-events: none;
+}
+
+/* Show menu and overlay */
+.menu.show {
+right: 0;
+}
+
+.overlay.show {
+opacity: 1;
+pointer-events: auto;
+}
+
+
+ul{
+position: relative;
+display: flex;
+flex-direction: column;
+gap: 30px;
+}
+
+ul li
+{
+position: relative;
+list-style: none;
+}
+
+ul li a {
+position: relative;
+font-size: 4em;
+text-decoration: none;
+line-height: 1em;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: transparent;
+-webkit-text-stroke: 1px rgba(255,255,255,0.5);
+
+}
+
+ul li a::before{
+content: attr(data-text);
+position :  absolute;
+color: var(--clr);
+width: 0%;
+overflow: hidden;
+transition: 1s;
+border-right: 8px solid var(--clr) ;
+-webkit-text-stroke: 1px var(--clr);
+
+}
+
+ul li a:hover::before{
+width: 100%;
+filter: drop-shadow(0 0 25px var(--clr));
+
+}
+.some-css-to-make-it-pretty {
+position: fixed;
+height: 90vh;
+justify-content: center;
+display: flex;
+flex-flow: column;
+z-index: 10000000;
+font-family: "Raleway", sans-serif;
+}
+
+.some-css-to-make-it-pretty h2 {
+color: white;
+text-transform: uppercase;
+letter-spacing: 2px;
+font-size: 10px;
+margin-bottom: 0;
+
+}
+
+/* Menu button outer container */
+.menu-btn-outer {
+position: fixed;
+top: 30px;
+right: 40px; /* Move the button to the right */
+width: 190px; /* Increase the width */
+height: 150px; /* Increase the height */
+overflow: hidden;
+z-index: 10000000;
+font-family: "Raleway", sans-serif;
+font-weight: bolder;
+font-size: 1.7vw;
+}
+
+.menu-btn-outer > div {
+display: inline-block;
+vertical-align: middle;
+}
+
+.menu-btn-outer:hover .menu-word .menu-text,
+.menu-btn-outer.activated .menu-word .menu-text {
+left: 10px;
+}
+
+.menu-btn-outer:hover .menu-btn,
+.menu-btn-outer.activated .menu-btn {
+transform: scale(0.85, 0.85);
+}
+
+.menu-btn-outer:hover .line-1,
+.menu-btn-outer.activated .line-1 {
+transform: rotate(90deg);
+top: 12px; /* Adjusted for larger size */
+max-width: 100%;
+background-color: #ddcb03;
+}
+
+.menu-btn-outer:hover .line-2,
+.menu-btn-outer.activated .line-2 {
+margin-bottom: 0;
+max-width: 100%;
+background-color: #ddcb03;
+}
+
+.menu-btn-outer:hover .line-3,
+.menu-btn-outer.activated .line-3 {
+right: -175%;
+
+}
+
+.menu-btn-outer.activated .menu-text {
+left: -150% !important;
+}
+
+.menu-btn-outer.activated .close-text {
+left: 12%;
+}
+
+.menu-btn-outer.activated .menu-btn-circle {
+transform: rotate(45deg);
+}
+
+.menu-btn-outer.activated:hover .close-text {
+left: 15%;
+}
+
+.menu-btn-outer.activated:hover .menu-btn {
+transform: scale(0.75, 0.75);
+}
+
+.menu-btn-outer.activated:hover .line-1,
+.menu-btn-outer.activated:hover .line-2 {
+background-color: rgb(159, 198, 255);
+}
+
+/* Menu word styling */
+.menu-word {
+text-transform: uppercase;
+letter-spacing: 2px;
+height: 30px; /* Increase height */
+width: 100%;
+max-width: 100px; /* Increase max-width */
+overflow: hidden;
+position: relative;
+color: rgba(255, 255, 255, 0.744);
+}
+
+.menu-word > span {
+position: absolute;
+top: 0;
+left: 0;
+transition: 350ms;
+}
+
+.menu-word .close-text {
+left: -100%;
+}
+
+/* Menu button circle */
+.menu-btn {
+width: 70px; /* Increase width */
+height: 70px; /* Increase height */
+border: rgba(255, 255, 255, 0.644) solid 7px; /* Increase border thickness */
+border-radius: 50%;
+position: relative;
+transition: 350ms;
+transform: scale(1, 1);
+}
+
+.menu-btn-circle {
+height: 30px; /* Increase height */
+width: 50px; /* Increase width */
+position: absolute;
+margin: auto;
+top: 0;
+bottom: 0;
+right: 0;
+left: 0;
+transition: 300ms;
+}
+
+.menu-btn-circle > span {
+height: 6px; /* Increase thickness */
+width: 100%;
+display: block;
+float: right;
+position: absolute;
+right: 0;
+transition: 350ms;
+}
+
+.menu-btn-circle .line-1 {
+background-color: white;
+max-width: 35px; /* Increase max-width */
+}
+
+.menu-btn-circle .line-2 {
+  background-color: #ddcb03;
+max-width: 50px; /* Increase max-width */
+top: 12px; /* Adjusted for larger size */
+}
+
+.menu-btn-circle .line-3 {
+background-color: white;
+max-width: 40px; /* Increase max-width */
+top: 24px; /* Adjusted for larger size */
 }

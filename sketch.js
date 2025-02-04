@@ -52,13 +52,6 @@ window.addEventListener('scroll', function() {
 })
 
 
-window.onscroll = function() {
-  const maxScroll = 3000; // Set maximum scroll height 
-
-  if (window.scrollY > maxScroll) {
-    window.scrollTo(0, maxScroll); // force scroll to stay at maxScroll
-  }
-};
 
 
 
