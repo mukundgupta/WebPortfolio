@@ -1221,6 +1221,7 @@ z-index: 10000000;
 font-family: "Raleway", sans-serif;
 font-weight: bolder;
 font-size: 1.7vw;
+cursor: pointer;
 }
 
 .menu-btn-outer > div {
