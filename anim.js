@@ -194,7 +194,7 @@ for (const e of document.querySelectorAll('.anim-text,h2')) {
       width: data.width ?? 0.2,
       
       // Number of pixel layers.
-      layers: data.layers ?? 3,
+      layers: data.layers ?? 10,
             
       speed: data.speed ?? 0.75, 
       delay: data.delay ?? 0,      
