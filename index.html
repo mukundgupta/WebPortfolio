@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mukund - Portfolio</title>
+
+    <link rel="stylesheet" href="style.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Overpass:ital,wght@1,800&family=Pixelify+Sans&family=Raleway:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="sketch.js"></script>
+    <link href="Assets/main_logo.png" rel="icon" />
+  </head>
+  <body>
+    <div id="mainHeading" class="fade-in">
+      <b>Hi, this is
+        <span class="magic">
+          Mukund
+          </span> </br>
+        An aspiring <span class="type-effect"></span>
+   
+        
+      </div>
+    <section class="home-back">
+      
+      <div class="gradient-bg">
+        <svg
+          viewBox="0 0 100vw 100vw"
+          xmlns="http://www.w3.org/2000/svg"
+          class="noiseBg"
+        >
+          <filter id="noiseFilterBg">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.6"
+              stitchTiles="stitch"
+            />
+          </filter>
+
+          <rect
+            width="100%"
+            height="100%"
+            preserveAspectRatio="xMidYMid meet"
+            filter="url(#noiseFilterBg)"
+          />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur
+                in="SourceGraphic"
+                stdDeviation="10"
+                result="blur"
+              />
+              <feColorMatrix
+                in="blur"
+                mode="matrix"
+                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+                result="goo"
+              />
+              <feBlend in="SourceGraphic" in2="goo" />
+            </filter>
+          </defs>
+        </svg>
+        <div class="gradients-container">
+          <div class="g1"></div>
+          <div class="g2"></div>
+          <div class="g3"></div>
+          <div class="g4"></div>
+          <div class="g5"></div>
+          <div class="interactive"></div>
+        </div>
+      </div>
+    </section>
+    <section class="about">
+      <div class="glass-effect">
+        <div id = 'hello-heading'>
+          <span class="type-hello"></span>
+          
+        </div>
+        <div class="about-text">
+          about text
+        </div>
+      </div>
+
+    </section>
+    <script>
+      // Script for fade-in effect
+      window.addEventListener('load', () => {
+        document.getElementById('mainHeading').classList.add('show');
+      });
+    </script>
+
+
+<!-- Source script for type effect -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    
+    <script>
+      // Script for applying type effect
+      var typed = new Typed(".type-effect",{
+        strings: [
+          "Designer",
+          "Developer",
+          "Innovator",
+        ],
+        typeSpeed: 50,
+        backSpeed: 40,
+        loop: true,
+       
+      });
+      var helloType = new Typed(".type-hello",{
+        strings: [
+          "Hello World",
+
+        ],
+        typeSpeed: 100,
+        backSpeed: 20,
+        loop: true,
+        backDelay: 2000,
+       
+      });
+    </script>
+  </body>
+</html>

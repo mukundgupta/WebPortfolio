@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MG - Animation & VFX</title>
+    <link rel="stylesheet" href="anim.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <script type="module" src="anim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  </head>
+  <body>
+    <div class="preloader">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 50 600 450"
+        opacity="0"
+      >
+        <line
+          x1="150"
+          x2="450"
+          y1="300"
+          y2="300"
+          fill="none"
+          stroke="#333"
+          stroke-width="48"
+          stroke-linecap="round"
+        />
+        <line
+          x1="150"
+          x2="450"
+          y1="300"
+          y2="300"
+          fill="none"
+          stroke="#222"
+          stroke-width="30"
+          stroke-linecap="round"
+        />
+        <path
+          stroke-dashoffset="833"
+          stroke-dasharray="834 834"
+          stroke-linecap="round"
+          fill="none"
+          fill-rule="evenodd"
+          stroke="#8ADB2C"
+          stroke-width="18"
+          d="M150,300c0,0,138,0,198,0c112,0,66-122,15-165c-43.9-37-92-10-79,33c7.7,25.5,51.6,47.6,99,36c139-34,67,96,67,96"
+        />
+        <text
+          fill="#FFF"
+          transform="translate(145.615 266.265)"
+          font-family="sans-serif"
+          font-size="31"
+        >
+          loading...
+        </text>
+        <polygon
+          fill="#FFA06C"
+          points="434 278 424 205 459 286 498 234 479 298 538 275 484 320 542 349 462 335 462 394 439 318 372 356 427 299 372 260"
+        />
+        <polygon
+          fill="#FFE45F"
+          points="414 252 440 299 497 233 479 287 529 283 498 315 539 334 476 329 503 382 448 329 432 382 426 317 372 333 420 299"
+        />
+        <polygon
+          fill="#FFF"
+          points="434.1 303.9 428.3 261.2 451.7 290.5 457.6 265.4 468.5 296.4 528 252 481.9 303.9 517.1 312.3 469.3 316.5 509.6 341.6 462.6 336.6 458.4 376 443.3 319.8 417.4 357.6 426.6 314 383 298.9"
+        />
+      </svg>
+    </div>
+    <div id="content" style="display: none">
+      <section class="home-will-go-below">
+        <div class="anim-container">
+          <img
+            class="anim-text"
+            src="Assets/animation_text.png"
+            style="position: relative; z-index: 2"
+            data-speed="0.35"
+            data-mode="1"
+          />
+        </div>
+      </section>
+      <div id="grid-con">
+        <div class="grid" id="grid"></div>
+      </div>
+      <!-- Section that acts as a ghost home page so that the view page does not cover the home page -->
+      <section class="ghost-home"></section>
+      \
+      <!-- page to view the animations (will overlap the landing page) -->
+      <section class="view-container">
+        <div class="view-anim">
+          <div class="video-item" onclick="openVideo('video1.mp4')">
+            <img src="animation_thumbnails/among_the_stars.jpg" alt="Video 1" />
+            <div class="title">Among The Stars</div>
+            <div class="desc">
+              My latest project - A concept trailer of an animated movie set
+              trillions of years in the future.
+            </div>
+          </div>
+
+          <div class="video-item" onclick="openVideo('video2.mp4')">
+            <img src="animation_thumbnails/among_the_stars.jpg" alt="Video 2" />
+            <div class="title">Title 2</div>
+            <div class="desc">
+              DESC
+            </div>
+      </div>
+            <div class="video-item" onclick="openVideo('video3.mp4')">
+              <img src="thumb3.jpg" alt="Video 3" />
+              <div class="title">Title 3</div>
+              <div class="desc">
+                DESC
+              </div>
+        </div>
+
+        <div class="video-item" onclick="openVideo('video4.mp4')">
+          <img src="thumb4.jpg" alt="Video 4" />
+          <div class="title">Title 4</div>
+          <div class="desc">
+            DESC
+          </div>
+          </div>
+      </section>
+    </div>
+
+    <script>
+     
+
+
+      var path = document.querySelector("path");
+      var length = path.getTotalLength();
+      // create timeline
+      var timeline = new TimelineMax({
+        repeat: -1,
+        repeatDelay: 1,
+      });
+
+      // initial animation of svg
+      TweenMax.to("svg", 0.5, {
+        opacity: 1,
+      });
+
+      // set up looping text animation
+      TweenMax.to("text", 0.5, {
+        opacity: 0.2,
+        yoyo: true,
+        repeat: -1,
+        ease: Sine.easeInOut,
+      });
+
+      // path animation
+      timeline.from(path, 0.5, {
+        // Reduced duration for faster animation
+        autoAlpha: 0,
+        ease: Power2.easeOut,
+      });
+      timeline.to(
+        path,
+        1,
+        {
+          attr: {
+            "stroke-dashoffset": 0,
+          },
+          ease: Quint.easeIn,
+        },
+        0
+      );
+
+      // Explosion
+      timeline.staggerFrom(
+        "polygon",
+        0.1,
+        {
+          scale: 0,
+          transformOrigin: "center",
+          ease: Back.easeOut,
+        },
+        0.05,
+        1
+      );
+      timeline.staggerTo(
+        "polygon",
+        0.25,
+        {
+          cycle: {
+            rotation: [-90, 90],
+          },
+          transformOrigin: "center",
+        },
+        0,
+        1
+      );
+      timeline.staggerTo(
+        "polygon",
+        0.25,
+        {
+          autoAlpha: 0,
+          transformOrigin: "center",
+          ease: Back.easeOut,
+        },
+        -0.05,
+        1 + "+=.5"
+      );
+
+      // remove path
+      timeline.to(
+        path,
+        1,
+        {
+          attr: {
+            "stroke-dashoffset": -length,
+          },
+          autoAlpha: 0,
+          ease: Quint.easeInOut,
+        },
+        1
+      );
+
+      // Show content after loading animation
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          document.querySelector(".preloader").style.display = "none";
+          document.getElementById("content").style.display = "block";
+        }, 2000); // Reduced the timeout to match the faster loading animation duration
+      });
+
+      const grid = document.getElementById("grid");
+      const frames = [
+        "frames/frame1.png",
+        "frames/frame2.png",
+        "frames/frame3.png",
+        "frames/frame4.png",
+        "frames/frame5.png",
+        "frames/frame6.png",
+        "frames/frame7.png",
+        "frames/frame8.png",
+        "frames/frame9.png",
+        "frames/frame10.png",
+        "frames/frame11.png",
+        "frames/frame12.png",
+        "frames/frame13.png",
+        "frames/frame14.png",
+        "frames/frame15.png",
+      ]; // Replace with actual image URLs
+
+      for (let i = 0; i < 400; i++) {
+        // Adjusted for squares
+        let square = document.createElement("div");
+        square.classList.add("square");
+        let img = document.createElement("img");
+        square.appendChild(img);
+
+        square.addEventListener("mouseenter", () => {
+          let randomFrame = frames[Math.floor(Math.random() * frames.length)];
+          img.src = randomFrame;
+          img.style.opacity = 1;
+        });
+
+        square.addEventListener("mouseleave", () => {
+          setTimeout(() => {
+            img.style.opacity = 0;
+          }, 300);
+        });
+
+        grid.appendChild(square);
+      }
+    </script>
+  </body>
+</html>

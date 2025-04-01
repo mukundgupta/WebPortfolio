@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Scrolling Grid</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #111;
+        color: white;
+        font-family: Arial, sans-serif;
+        height: 200vh; /* Ensure there is enough scroll space */
+        perspective: 1000px; /* Perspective for 3D effect */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        width: 60vw;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        gap: 20px;
+        transform-style: preserve-3d;
+        position: fixed; /* Fix grid in place */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotateX(20deg);
+      }
+
+      .box {
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(45deg, #ff5733, #ffcc29);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        border-radius: 10px;
+        transform: translateZ(0);
+        transition: transform 0.2s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="grid">
+      <!-- Generate 10 rows (20 boxes) -->
+      <script>
+        const container = document.getElementById("grid");
+        for (let i = 1; i <= 20; i++) {
+          let div = document.createElement("div");
+          div.className = "box";
+          div.textContent = "Box " + i;
+          container.appendChild(div);
+        }
+
+        window.addEventListener("scroll", () => {
+          let scrollY = window.scrollY;
+          container.style.transform = `translate(-50%, -50%) rotateX(20deg) translateZ(${
+            scrollY * -1
+          }px)`;
+        });
+      </script>
+    </div>
+  </body>
+</html>

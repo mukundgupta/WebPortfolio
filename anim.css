@@ -1,0 +1,197 @@
+html, body { height: 100%; margin: 0; }
+body {
+  background: black;
+
+}
+
+
+.anim-text {
+  height: 90vh;
+ pointer-events: none;
+ position: fixed;
+
+}
+.anim-text:first-child { margin-bottom: 5svh; }
+.anim-text:last-child { margin-top: 5svh; }
+
+
+
+:root {
+  --background-rgb: 0 0 0;
+}
+
+
+#grid-con {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(var(--background-rgb));
+  overflow: hidden;
+  perspective: 2000px;
+}
+
+.grid {
+  width: 140rem;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-rows: repeat(20, 1fr); /* Adjusted for squares */
+  grid-template-columns: repeat(20, 1fr); /* Adjusted for squares */
+  position: absolute;
+  transform: rotateX(50deg) rotateY(-5deg) rotateZ(20deg) scale(1.25);
+  z-index: 1; /* Ensure the grid is below other elements */
+}
+
+.grid:after,
+.grid:before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  pointer-events: none;
+}
+
+.grid:before {
+  z-index: 2;
+  background-size: 5%;
+  background-repeat: repeat;
+  opacity: 0.25;
+}
+
+.square {
+  border: 2px solid rgb(255 255 255 / 25%);
+  transition: background 0.3s, transform 0.9s;
+}
+
+.square:hover {
+  transform: scale(1.4) translateZ(20px);
+  transition-duration: 200ms;
+}
+
+.square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.square:hover img {
+  opacity: 1;
+}
+
+
+.view-anim {
+  height: 100vh;
+  width: 70vw;
+  z-index: 1;
+  
+  gap: 10%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+align-items: center;
+place-items: center;
+}
+
+@media (max-width: 768px) {
+  .view-anim {
+    width: 90vw;
+    grid-template-columns: 1fr;
+  }
+}
+
+.view-container {
+  background-color: rgba(0, 0, 0, 0.863);
+ position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 100000;
+ 
+}
+
+.video-item {
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.video-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+}
+
+.video-item:hover img {
+  filter: brightness(200%);
+  border-radius: 30px;
+}
+
+.video-item:hover {
+  transform: scale(1.1);
+}
+
+.video-item .desc {
+  position: absolute;
+  font-family: "League Spartan", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+padding-left: 20px;
+padding-right: 20px;
+  color: white;
+}
+
+.video-item .title {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 2rem;
+}
+
+
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  pointer-events: none;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  opacity: 0;
+}
+
+.anim-container {
+  position: fixed;
+
+
+}
+
+.ghost-home {
+  width: 100vw;
+  height: 100vh;
+}
