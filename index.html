@@ -25,7 +25,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="sketch.js"></script>
+   
     <link href="Assets/main_logo.png" rel="icon" />
   </head>
   <body>
@@ -35,7 +35,7 @@
           Mukund
           </span> </br>
         An aspiring <span class="type-effect"></span>
-   
+      </b>
         
       </div>
     <section class="home-back">
@@ -91,16 +91,27 @@
     </section>
     <section class="about">
       <div class="glass-effect">
-        <div id = 'hello-heading'>
+        <div id = 'hello-heading' class="fade-about">
+          <b>
+          <span class="def">def</span>
           <span class="type-hello"></span>
-          
+        </b>
         </div>
         <div class="about-text">
-          about text
+          ABOUT SECTION
+
+          UNDER CONSTRUCTION
         </div>
       </div>
 
     </section>
+
+    <section class="view-portfolio-sec">
+      View My Work
+      <div class="test">COMING SOON</div>
+    </section>
+
+
     <script>
       // Script for fade-in effect
       window.addEventListener('load', () => {
@@ -127,7 +138,7 @@
       });
       var helloType = new Typed(".type-hello",{
         strings: [
-          "Hello World",
+          "About_Me():",
 
         ],
         typeSpeed: 100,
@@ -137,5 +148,8 @@
        
       });
     </script>
+
+    <!-- Script for other effects -->
+    <script src="sketch.js"></script>
   </body>
 </html>

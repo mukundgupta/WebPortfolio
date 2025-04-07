@@ -51,14 +51,24 @@ window.addEventListener('scroll', () => {
   }
 
 
-  const hello = document.getElementById('hello-heading');
+  const hello = document.querySelector('.fade-about');
     // Adjust the opacity based on scroll position
     if (scrollPosition > 190) {
       hello.style.opacity = '1'; // Hide the heading
-      hello.style.transition = 'opacity 0.9s ease'; // Smooth transition
+      hello.style.transition = 'opacity 0.7s ease'; // Smooth transition
     } else {
       hello.style.opacity = '0'; // Show the heading
     }
+
+    const about = document.querySelector('.about-text');
+    // Adjust the opacity based on scroll position
+    if (scrollPosition > 190) {
+      about.style.opacity = '1'; // Hide the heading
+      about.style.transition = 'opacity 0.7s ease'; // Smooth transition
+    } else {
+      about.style.opacity = '0'; // Show the heading
+    }
+    
 });
 
 
