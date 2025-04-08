@@ -36,7 +36,7 @@
           </span> </br>
         An aspiring <span class="type-effect"></span>
       </b>
-        
+      
       </div>
     <section class="home-back">
       
@@ -91,6 +91,7 @@
     </section>
     <section class="about">
       <div class="glass-effect">
+        <p id="scroll"><span id="scroll-text">scroll down for more info</span><br><i class="fa-solid fa-angle-down fa-bounce"></i></p>
         <div id = 'hello-heading' class="fade-about">
           <b>
           <span class="def">def</span>
@@ -108,7 +109,32 @@
 
     <section class="view-portfolio-sec">
       View My Work
-      <div class="test">COMING SOON</div>
+      <div class="portfolios">
+        <a class = "neon interactable" id="acce" data-type="lead-to-page"  href="animation_and_vfx.html">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span><b>Animation and VFX</b>
+      </a>
+      <a class = "neon interactable" id="meal"data-type="lead-to-page"href="{{url_for('donor_form')}}">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span><b>Programming</b>
+      </a>
+      <a class = "neon interactable" id="vol" data-type="lead-to-page" href="{{url_for('volunteer_form')}}">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span><b>Hardware Computing</b>
+      </a>
+      <a class = "neon interactable" id="don" data-type="lead-to-page" href="{{url_for('static', filename='donate.html')}}">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span><b>Graphic Design</b>
+    </a>
+      </div>
     </section>
 
 

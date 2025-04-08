@@ -52,23 +52,27 @@ window.addEventListener('scroll', () => {
 
 
   const hello = document.querySelector('.fade-about');
+  const about = document.querySelector('.about-text');
+  const scroll = document.querySelector('#scroll');
     // Adjust the opacity based on scroll position
     if (scrollPosition > 190) {
       hello.style.opacity = '1'; // Hide the heading
       hello.style.transition = 'opacity 0.7s ease'; // Smooth transition
-    } else {
-      hello.style.opacity = '0'; // Show the heading
-    }
 
-    const about = document.querySelector('.about-text');
-    // Adjust the opacity based on scroll position
-    if (scrollPosition > 190) {
       about.style.opacity = '1'; // Hide the heading
       about.style.transition = 'opacity 0.7s ease'; // Smooth transition
+      
+      scroll.style.opacity = '0'; // Hide scroll call
+      scroll.style.transition = 'opacity 0.7s ease';
     } else {
-      about.style.opacity = '0'; // Show the heading
+      hello.style.opacity = '0'; // Hide
+
+      about.style.opacity = '0'; 
+
+      scroll.style.opacity = '1'; //show scroll call
     }
-    
+
+
 });
 
 

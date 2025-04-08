@@ -1,18 +1,31 @@
 body {
   overflow-y: scroll;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .about {
   z-index: 10;
   height: 150vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-top: 60vh;
   position: relative;
-  left: 0;
+
+  padding-left: 1.5vw;
   /* background: linear-gradient(180deg, #002aff00 ,#005c91 50%); */
 }
 
@@ -28,7 +41,8 @@ body {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 
   display: flex;
-
+  box-sizing: border-box;
+  margin: 0;
   flex-direction: column;
 }
 
@@ -68,13 +82,47 @@ body {
   height: 100vh;
   width: 100vw;
   top: 0;
-  padding: 40vh 0;
 
   color: white;
   font-family: "Raleway", sans-serif;
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40vh;
 
   font-size: 4vw;
+}
+
+#scroll {
+  color: white;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+
+  position: absolute;
+  z-index: 100000;
+  padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+  #mainHeading {
+    font-size: 2rem;
+    padding: 40vh 0;
+  }
+  #hello-heading {
+    font-size: 2rem;
+  }
+  .glass-effect {
+    height: 90vh;
+    width: 90vw;
+  }
+  .about {
+    height: 150vh;
+    width: 100vw;
+  }
 }
 
 .hidden {
@@ -116,18 +164,6 @@ body {
   text-shadow: 0 0 10px rgba(4, 230, 250, 0.543);
 }
 
-/* View Portfolio Section */
-
-.view-portfolio-sec {
-  position: relative;
-  top: -20vh;
-  width: 100vw;
-  height: 100vh;
-  background-image: linear-gradient(180deg, #002aff00, #00914d 50%);
-  z-index: 100;
-  color: white;
-}
-
 .test {
   width: 100vw;
   height: 100vh;
@@ -139,6 +175,156 @@ body {
   }
   to {
     background-position: -200% center;
+  }
+}
+
+/* VIEW PORTFOLIO SECTION */
+/* View Portfolio Section */
+
+.view-portfolio-sec {
+  position: relative;
+
+  top: -30vh;
+  width: 100vw;
+  height: 140vh;
+  background-image: linear-gradient(180deg, #002aff00, rgb(12, 52, 53) 30%);
+  z-index: 100;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-size: 4vw;
+  text-align: center;
+  padding-top: 20vh;
+  font-weight: bold;
+
+  padding-top: 50vh;
+}
+
+.portfolios {
+  padding-top: 20vh;
+  width: 100vw;
+  height: auto;
+  z-index: 100;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+/* NEON PORTFOLIO BUTTONS */
+
+.neon {
+  text-align: right;
+  z-index: 12000;
+  height: 200px;
+  width: 200px;
+  padding: 10px;
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+
+  color: #03e9f4;
+
+  background-size: 190px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+}
+.neon:hover {
+  background: #03e9f4;
+
+  color: #050801;
+  box-shadow: 0 0 50px #03e9f4, 0 0 250px #03e9f4, 0 0 500px #03e9f4,
+    0 0 2000px #03e9f4;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+.neon:nth-child(1) {
+  filter: hue-rotate(270deg);
+}
+.neon:nth-child(2) {
+  filter: hue-rotate(180deg);
+}
+.neon:nth-child(3) {
+  filter: hue-rotate(0deg);
+}
+.neon:nth-child(4) {
+  filter: hue-rotate(110deg);
+}
+
+.neon span {
+  position: absolute;
+  display: block;
+}
+.neon span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animate1 1s linear infinite;
+}
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+.neon span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+.neon span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.neon span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
   }
 }
 
