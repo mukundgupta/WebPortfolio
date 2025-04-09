@@ -44,10 +44,14 @@ window.addEventListener('scroll', () => {
 
   // Adjust the opacity based on scroll position
   if (scrollPosition > 200) {
-    mainHeading.style.opacity = '0'; // Hide the heading
-    mainHeading.style.transition = 'opacity 0.7s ease'; // Smooth transition
+    // mainHeading.style.opacity = '0'; // Hide the heading
+    
+    // mainHeading.style.transition = 'opacity 0.7s ease'; // Smooth transition
+
+    mainHeading.classList.remove('show'); // Remove fade-in class
   } else {
     mainHeading.style.opacity = '1'; // Show the heading
+    mainHeading.classList.add('show'); // Remove fade-in class
   }
 
 
@@ -55,7 +59,7 @@ window.addEventListener('scroll', () => {
   const about = document.querySelector('.about-text');
   const scroll = document.querySelector('#scroll');
     // Adjust the opacity based on scroll position
-    if (scrollPosition > 190) {
+    if (scrollPosition > 200) {
       hello.style.opacity = '1'; // Hide the heading
       hello.style.transition = 'opacity 0.7s ease'; // Smooth transition
 
@@ -77,5 +81,22 @@ window.addEventListener('scroll', () => {
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const menuButtonOuter = document.querySelector('.menu-btn-outer');
+  const menu = document.getElementById('menu');
+  const overlay = document.getElementById('overlay');
+
+  menuButtonOuter.addEventListener('click', () => {
+    menuButtonOuter.classList.toggle('activated');
+    menu.classList.toggle('show');
+    overlay.classList.toggle('show');
+  });
+
+  overlay.addEventListener('click', () => {
+    menuButtonOuter.classList.remove('activated');
+    menu.classList.remove('show');
+    overlay.classList.remove('show');
+  });
+});
 
 
