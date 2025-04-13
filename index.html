@@ -29,7 +29,7 @@
     <link href="Assets/main_logo.png" rel="icon" />
   </head>
   <body>
-
+<!-- MENU BUTTON -->
     <section class="container head-main-style">
       <div class="row">
         <div class="col-12 pull-right">
@@ -51,26 +51,29 @@
       </div>
     </section>
 
+    <!-- MENU OVERLAY + OPTIONS -->
     <div id="menu" class="menu">
       <div class="menu-content">
-        <!-- Add your menu content here -->
+        <!-- MENU CONTENT -->
        
         <ul>
           <li style="--clr:#00ade1">
               <a href="#" data-text="&nbsp;HOME">&nbsp;HOME&nbsp;</a>
           </li>
             <li style="--clr:#ff6493">
-              <a href="#" data-text="&nbsp;ABOUT  ">&nbsp;ABOUT&nbsp; </a>
+              <a href="#about-sec " data-text="&nbsp;ABOUT">&nbsp;ABOUT&nbsp; </a>
           </li>
             <li style="--clr:#ffdd1c">
-              <a href="contact.html" data-text="&nbsp;CONTACT ">&nbsp;CONTACT &nbsp;</a>
+              <a href="#port-sec" data-text="&nbsp;PORTFOLIO">&nbsp;PORTFOLIO&nbsp;</a>
+             
+          </li>
+          <li style="--clr:#dc00d4">
+            <a href="#" data-text="&nbsp;FEEDBACK">&nbsp;FEEDBACK&nbsp;</a>
           </li>
             <li style="--clr:#00dc82">
-              <a href="#scroll-to-service" data-text="&nbsp;PORTFOLIO">&nbsp;PORTFOLIO&nbsp;</a>
+              <a href="contact.html" data-text="&nbsp;CREDITS ">&nbsp;CREDITS &nbsp;</a>
           </li>
-            <li style="--clr:#dc00d4">
-              <a href="#" data-text="&nbsp;FEEDBACK">&nbsp;FEEDBACK&nbsp;</a>
-            </li>
+           
   </ul>
       </div>
     </div>
@@ -90,7 +93,12 @@
           </span> </br>
         An aspiring <span class="type-effect"></span>
       </b>
-      
+     
+       <!-- <a href="#scroll-to-service" data-type="down">
+        <button id="noselect">
+          <b><span id="service-button-text">Jump to Portfolio</span> </b>
+        </button>
+      </a> -->
       </div>
     <section class="home-back">
       
@@ -143,7 +151,7 @@
         </div>
       </div>
     </section>
-    <section class="about">
+    <section class="about" id="about-sec">
       <div class="glass-effect">
         <p id="scroll"><span id="scroll-text">scroll down for more info</span><br><i class="fa-solid fa-angle-down fa-bounce"></i></p>
         <div id = 'hello-heading' class="fade-about">
@@ -161,37 +169,29 @@
 
     </section>
 
-    <section class="view-portfolio-sec">
+    <section class="view-portfolio-sec" id="port-sec">
       View My Work
       <div class="portfolios">
         <a class = "neon interactable" id="acce" data-type="lead-to-page"  href="animation_and_vfx.html">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span><b>Animation and VFX</b>
+     <b>Animation and VFX</b>
       </a>
       <a class = "neon interactable" id="meal"data-type="lead-to-page"href="{{url_for('donor_form')}}">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span><b>Programming</b>
+     <b>Programming</b>
       </a>
       <a class = "neon interactable" id="vol" data-type="lead-to-page" href="{{url_for('volunteer_form')}}">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span><b>Hardware Computing</b>
+          <b>Hardware Computing</b>
       </a>
       <a class = "neon interactable" id="don" data-type="lead-to-page" href="{{url_for('static', filename='donate.html')}}">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span><b>Graphic Design</b>
+        <b>Graphic Design</b>
     </a>
       </div>
     </section>
 
-
+<section class="footer">
+  <div class="footer-content">
+    HELLO
+    </div>
+    </section>
     <script>
       // Script for fade-in effect
       window.addEventListener('load', () => {

@@ -2,11 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content=" initial-scale=1.0" />
     <title>MG - Animation & VFX</title>
     <link rel="stylesheet" href="anim.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+crossorigin="anonymous"
+referrerpolicy="no-referrer"
+/>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <script type="module" src="anim.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -17,6 +24,9 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 50 600 450"
         opacity="0"
+        width="100%"
+        height="100%"
+        preserveAspectRatio="xMidYMid meet"
       >
         <line
           x1="150"
@@ -70,8 +80,10 @@
         />
       </svg>
     </div>
+    
     <div id="content" style="display: none">
       <section class="home-will-go-below">
+        
         <div class="anim-container">
           <img
             class="anim-text"
@@ -79,19 +91,21 @@
             style="position: relative; z-index: 2"
             data-speed="0.35"
             data-mode="1"
+
           />
         </div>
+        <p id="scroll"><span id="scroll-text">scroll down</span><br><i class="fa-solid fa-angle-down fa-bounce"></i></p>
       </section>
       <div id="grid-con">
         <div class="grid" id="grid"></div>
       </div>
       <!-- Section that acts as a ghost home page so that the view page does not cover the home page -->
       <section class="ghost-home"></section>
-      \
+      
       <!-- page to view the animations (will overlap the landing page) -->
       <section class="view-container">
         <div class="view-anim">
-          <div class="video-item" onclick="openVideo('video1.mp4')">
+          <div class="video-item" data-video-url="https://www.youtube.com/embed/xAKA-CqlQO8?si=s2B_qSV_TVcqzqAj"">
             <img src="animation_thumbnails/among_the_stars.jpg" alt="Video 1" />
             <div class="title">Among The Stars</div>
             <div class="desc">
@@ -124,6 +138,61 @@
           </div>
       </section>
     </div>
+    <!-- MENU BUTTON -->
+    <section class="container head-main-style">
+      <div class="row">
+        <div class="col-12 pull-right">
+          <div
+            class="menu-btn-outer"
+            data-toggle="collapse"
+            data-target="#mainMenu"
+          >
+       
+            <div class="menu-btn">
+              <div class="menu-btn-circle">
+                <span class="line line-1"></span>
+                <span class="line line-2"></span>
+                <span class="line line-3"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU OVERLAY + OPTIONS -->
+    <div id="menu" class="menu">
+      <div class="menu-content">
+        <!-- MENU CONTENT -->
+       
+        <ul>
+          <li style="--clr:#00ade1">
+              <a href="#" data-text="&nbsp;HOME">&nbsp;HOME&nbsp;</a>
+          </li>
+            <li style="--clr:#ff6493">
+              <a href="#about-sec " data-text="&nbsp;ABOUT">&nbsp;ABOUT&nbsp; </a>
+          </li>
+            <li style="--clr:#ffdd1c">
+              <a href="#port-sec" data-text="&nbsp;PORTFOLIO">&nbsp;PORTFOLIO&nbsp;</a>
+             
+          </li>
+          <li style="--clr:#dc00d4">
+            <a href="#" data-text="&nbsp;FEEDBACK">&nbsp;FEEDBACK&nbsp;</a>
+          </li>
+            <li style="--clr:#00dc82">
+              <a href="contact.html" data-text="&nbsp;CREDITS ">&nbsp;CREDITS &nbsp;</a>
+          </li>
+           
+  </ul>
+      </div>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+    </div>
+    <div class="dark-color">
+
+    </div>
+
 
     <script>
      
@@ -267,5 +336,23 @@
         grid.appendChild(square);
       }
     </script>
+    <script src="sketch.js"></script>
+
+
+    <div id="videoModal" class="video-modal">
+      <div class="video-modal-content">
+        <span id="closeModal" class="close-modal">&times;</span>
+        <iframe
+          id="videoIframe"
+          width="560"
+          height="315"
+          src=""
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
   </body>
 </html>

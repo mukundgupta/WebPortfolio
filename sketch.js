@@ -58,6 +58,7 @@ window.addEventListener('scroll', () => {
   const hello = document.querySelector('.fade-about');
   const about = document.querySelector('.about-text');
   const scroll = document.querySelector('#scroll');
+  const about_section = document.querySelector('.about');
     // Adjust the opacity based on scroll position
     if (scrollPosition > 200) {
       hello.style.opacity = '1'; // Hide the heading
@@ -68,12 +69,16 @@ window.addEventListener('scroll', () => {
       
       scroll.style.opacity = '0'; // Hide scroll call
       scroll.style.transition = 'opacity 0.7s ease';
+
+      about_section.style.pointerEvents = 'auto'; // Enable pointer events for the about section
     } else {
       hello.style.opacity = '0'; // Hide
 
       about.style.opacity = '0'; 
 
       scroll.style.opacity = '1'; //show scroll call
+
+      about_section.style.pointerEvents = 'none'; // Disable pointer events for the about section
     }
 
 
@@ -100,3 +105,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const videoItems = document.querySelectorAll(".video-item");
+  const videoModal = document.getElementById("videoModal");
+  const videoIframe = document.getElementById("videoIframe");
+  const closeModal = document.getElementById("closeModal");
+
+  // Function to open the modal and set the video URL
+  videoItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const videoUrl = item.getAttribute("data-video-url"); // Get video URL from data attribute
+      videoIframe.src = videoUrl + "?autoplay=1"; // Add autoplay parameter
+      videoModal.classList.add("show"); // Show the modal
+    });
+  });
+
+  // Function to close the modal
+  closeModal.addEventListener("click", () => {
+    videoModal.classList.remove("show"); // Hide the modal
+    videoIframe.src = ""; // Stop the video
+  });
+
+  // Close the modal when clicking outside the content
+  videoModal.addEventListener("click", (e) => {
+    if (e.target === videoModal) {
+      videoModal.classList.remove("show");
+      videoIframe.src = "";
+    }
+  });
+});
